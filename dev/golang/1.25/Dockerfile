@@ -1,4 +1,4 @@
-FROM kishlin/base-kishlin-golang:1.24
+FROM kishlin/base-kishlin-golang:1.25
 
 USER root
 
