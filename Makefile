@@ -7,10 +7,10 @@ pull:
 build:
 	./build.sh
 
-build-dev:
+build-dev: build-prod
 	./build.sh dev
 
 build-prod:
 	./build.sh prod
 
-.PHONY: build-dev build-prod
+.PHONY: push pull build build-dev build-prod
