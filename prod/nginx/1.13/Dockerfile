@@ -1,9 +1,9 @@
 FROM nginx:1.13-alpine
 
 # Default value, can be overridden
-ENV PHP_ADDRESS "php"
-ENV TZ "Europe/Paris"
-ENV SERVER_NAME "php-docker.pierrelouislegrand.com"
+ENV PHP_ADDRESS="php"
+ENV TZ="Europe/Paris"
+ENV SERVER_NAME="php-docker.pierrelouislegrand.com"
 
 COPY ./config /tmp
 RUN mv /tmp/site.conf /etc/nginx/conf.d/default.conf \

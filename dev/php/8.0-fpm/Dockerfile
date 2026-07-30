@@ -2,12 +2,12 @@ FROM kishlin/base-kishlin-php:8.0-fpm
 
 VOLUME /srv/cache
 
-ENV COMPOSER_ALLOW_SUPERUSER true
-ENV COMPOSER_CACHE_DIR /srv/cache/composer/cache
-ENV COMPOSER_DISABLE_XDEBUG_WARN 1
-ENV COMPOSER_HOME /srv/cache/composer
-ENV COMPOSER_MEMORY_LIMIT -1
-ENV COMPOSER_VERSION 2.1.3
+ENV COMPOSER_ALLOW_SUPERUSER=true
+ENV COMPOSER_CACHE_DIR=/srv/cache/composer/cache
+ENV COMPOSER_DISABLE_XDEBUG_WARN=1
+ENV COMPOSER_HOME=/srv/cache/composer
+ENV COMPOSER_MEMORY_LIMIT=-1
+ENV COMPOSER_VERSION=2.1.3
 
 RUN pecl channel-update pecl.php.net \
     && pecl install xdebug-3.0.4 \
