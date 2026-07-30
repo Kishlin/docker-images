@@ -13,12 +13,11 @@ ENV XDEBUG_VERSION 3.2.1
 RUN pecl channel-update pecl.php.net \
     && pecl install xdebug-${XDEBUG_VERSION} \
     && docker-php-ext-enable xdebug \
-    && curl -sS http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
     && chmod -R 777 /srv/cache \
+	&& apt update && apt upgrade -y && apt install -y parallel \
 	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& cd - \
-	&& apt update && apt upgrade -y && apt install -y parallel
+	&& rm -rf /var/lib/apt/lists/*
 
 # Copy config
 COPY ./config/system/ /docker/

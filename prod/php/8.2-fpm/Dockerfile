@@ -73,8 +73,7 @@ RUN apt-get clean
 RUN pecl clear-cache
 
 RUN mkdir /nginx \
-    && rm -rf /var/lib/apt/lists/* \
-    && cd -
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy config
 COPY ./config/system /docker/

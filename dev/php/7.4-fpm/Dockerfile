@@ -12,15 +12,14 @@ ENV COMPOSER_VERSION 1.9.2
 RUN pecl channel-update pecl.php.net \
     && pecl install xdebug-2.9.6 \
     && docker-php-ext-enable xdebug \
-    && curl -sS http://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
+    && curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer --version=${COMPOSER_VERSION} \
 	&& COMPOSER_HOME=/srv/cache/composer composer -q global require "hirak/prestissimo:^0.3" \
 	&& chmod -R 777 /srv/cache \
-	&& apt-get clean \
-	&& rm -rf /var/lib/apt/lists/* \
-	&& cd - \
 	&& curl -so /usr/local/bin/security-checker https://get.sensiolabs.org/security-checker.phar \
 	&& chmod +x /usr/local/bin/security-checker \
-	&& apt update && apt upgrade -y && apt install -y parallel
+	&& apt update && apt upgrade -y && apt install -y parallel \
+	&& apt-get clean \
+	&& rm -rf /var/lib/apt/lists/*
 
 # Copy config
 COPY ./config/system/ /docker/

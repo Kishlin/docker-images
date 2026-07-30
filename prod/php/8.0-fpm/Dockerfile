@@ -70,8 +70,7 @@ RUN apt-get update -qq \
     && apt-get clean \
     && pecl clear-cache \
     && mkdir /nginx \
-    && rm -rf /var/lib/apt/lists/* \
-    && cd -
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy config
 COPY ./config/system /docker/

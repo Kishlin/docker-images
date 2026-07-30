@@ -83,8 +83,7 @@ RUN docker-php-ext-enable imagick
 RUN apt-get clean
 
 RUN mkdir /nginx \
-    && rm -rf /var/lib/apt/lists/* \
-    && cd -
+    && rm -rf /var/lib/apt/lists/*
 
 # Copy config
 COPY ./config/system /docker/
