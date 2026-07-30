@@ -28,3 +28,12 @@ make pull         # pull all images from Docker Hub
 
 Tags follow the pattern `kishlin/base-kishlin-<tech>:<version>` for prod,
 with a `-dev` suffix for dev images.
+
+Add `TARGET=<tech>` or `TARGET=<tech>/<version>` to restrict any of the
+above to a single image instead of building/pulling/pushing everything:
+
+```sh
+make build-prod TARGET=golang/1.26   # just that one prod image
+make build-dev TARGET=golang/1.26    # just that one dev image (builds its prod image first)
+make push TARGET=golang               # every version of one tech
+```
